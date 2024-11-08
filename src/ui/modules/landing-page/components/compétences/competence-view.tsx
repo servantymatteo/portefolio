@@ -1,8 +1,6 @@
 import { Container } from "@/ui/components/container/container";
-import { Button } from "@/ui/design-system/button/button";
 import { Typography } from "@/ui/design-system/typography/typography";
 import Image from "next/image";
-import { RiArrowRightLine } from "react-icons/ri";
 import { v4 as uuidv4 } from "uuid";
 
 interface FeaturesListInterface {
@@ -16,55 +14,55 @@ const featuresData: FeaturesListInterface[] = [
   {
     imagePath: "/asset/svg/formation.svg",
     imagteAlt: "Illustration de deux personnes étant en train de discuter",
-    title: "La formation",
-    description: "Tout savoir sur la formation",
+    title: "Dévellopement web",
+    description: "Tailwind CSS, Typescript, Wordpress ...",
   },
   {
     imagePath: "/asset/svg/contact.svg",
     imagteAlt: "Illustration",
-    title: "Contact",
-    description: "Contact entre les professeur et les élèves est simplifié",
+    title: "Réseaux",
+    description: "Création / Gestion de réseaux",
   },
   {
     imagePath: "/asset/svg/poursuite.svg",
     imagteAlt:
       "Illustration d'une personne faisant des recherches sur un ordinateur",
-    title: "Poursuite",
-    description: "Les possibilités de poursuites d'études",
+    title: "Maintenance",
+    description: "Maintenance de site internet, et de materiels informatiques",
   },
   {
     imagePath: "/asset/svg/ressources.svg",
     imagteAlt: "Illustration",
-    title: "Ressources",
-    description: "Les ressources sont facilements accéssible",
+    title: "Cybersécurité",
+    description: "débutant sur root-me / TryHackMe",
   },
 ];
 
-export const FeaturedView = () => {
+export const CompetenceView = () => {
   const featuredList = featuresData.map((features) => (
     <div
       key={uuidv4()}
-      className="flex flex-col items-center justify-center bg-white rounded p-7"
+      className="flex flex-col items-center justify-center bg-primary rounded p-6 transition-all hover:bg-opacity-80"
     >
-      <div className="relative w-[130px] h-[130px] rounded-full mb-6 p-10 bg-gray-400">
+      <div className="relative w-[130px] h-[130px] rounded mb-4">
         <Image
           fill
           src={features.imagePath}
           alt={features.imagteAlt}
-          className="object-scale-down blur-2xl"
+          className="object-contain blur-2xl"
         />
         <Image
           fill
           src={features.imagePath}
           alt={features.imagteAlt}
-          className="object-scale-down"
+          className="object-contain"
         />
       </div>
       <Typography
         variant="lead"
         component="h3"
         weight="medium"
-        className="text-center mb-2.5"
+        className="text-center mb-2"
       >
         {features.title}
       </Typography>
@@ -80,32 +78,26 @@ export const FeaturedView = () => {
   ));
 
   return (
-    <div className="bg-gray-300">
-      <Container className="grid grid-cols-12 gap-24 py-24">
-        <div className="grid grid-cols-2 col-span-7 gap-7">{featuredList}</div>
-        <div className="col-span-5">
-          <Typography variant="h2" component="h2" className="mb-5">
-            Une nouvelle filière connectée !
+    <div>
+      <Container className="py-16">
+        <div className="text-center space-y-8">
+          <Typography className="text-center" variant="h2" theme="white">
+            Compétences
           </Typography>
           <Typography
             variant="body-lg"
             component="p"
             theme="gray"
-            className="mb-8"
+            className="mb-6"
           >
             Le bac pro CIEL, une filière connectée qui forme aux métiers du
-            numérique.Découvrez notre filière de formation professionnelle qui
+            numérique. Découvrez notre filière de formation professionnelle qui
             offre de nombreux débouchés professionnels.
           </Typography>
-          <Button
-            variant="secondary"
-            baseUrl="/"
-            icon={{ icon: RiArrowRightLine }}
-            iconPosition="right"
-          >
-            Commencer
-          </Button>
         </div>
+      </Container>
+      <Container className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-16">
+        {featuredList}
       </Container>
     </div>
   );

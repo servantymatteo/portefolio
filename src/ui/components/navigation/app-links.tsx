@@ -1,5 +1,5 @@
 import { appLinks } from "@/types/appLinks";
-import { RiInstagramLine, RiYoutubeLine } from "react-icons/ri";
+import { RiInstagramLine, RiLinkedinLine, RiYoutubeLine } from "react-icons/ri";
 
 const footerApplicationLinks: appLinks[] = [
   {
@@ -13,36 +13,15 @@ const footerApplicationLinks: appLinks[] = [
     type: "internal",
   },
   {
-    label: "Lycée",
-    baseUrl:
-      "https://www.site.ac-aix-marseille.fr/lyc-mendesfrance-vitrolles/spip/-00-Accueil-.html",
-    type: "external",
-  },
-  {
-    label: "Road Map",
-    baseUrl: "https://www.notion.so/Road-Map-730baed017ca438b9da809e91fbc0c36",
-    type: "external",
+    label: "Design System",
+    baseUrl: "/design-system",
+    type: "internal",
   },
 ];
 const footerUserLinks: appLinks[] = [
   {
-    label: "Mon espace",
+    label: "Back-Office",
     baseUrl: "/#",
-    type: "internal",
-  },
-  {
-    label: "Connexion",
-    baseUrl: "/connexion/",
-    type: "internal",
-  },
-  {
-    label: "Mot de passes oublié",
-    baseUrl: "/connexion/mot-de-passe-perdu",
-    type: "internal",
-  },
-  {
-    label: "Design System",
-    baseUrl: "/design-system",
     type: "internal",
   },
 ];
@@ -80,6 +59,12 @@ export const footerSocialNetworksLinks: appLinks[] = [
     baseUrl: "https://instagram.com",
     type: "external",
     icon: RiInstagramLine,
+  },
+  {
+    label: "LinkeDin",
+    baseUrl: "https://instagram.com",
+    type: "external",
+    icon: RiLinkedinLine,
   },
 ];
 

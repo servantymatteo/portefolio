@@ -1,11 +1,13 @@
-import { FeaturedView } from "./components/featured/featured.view";
+import { CompetenceView } from "./components/compétences/competence-view";
+import { ExperienceView } from "./components/experience/experience.view";
 import { HeroTopView } from "./components/hero-top.tsx/hero-top.view";
-import { VisitVirtuelleCtaView } from "./components/visite-virtu-cta/visite-virtu-cta.view";
 
 export const LandigPageView = () => {
   return (
     <>
       <HeroTopView />
+      <CompetenceView />
+      <ExperienceView />
     </>
   );
 };

@@ -14,34 +14,35 @@ export const Footer = () => {
   const footerNavigationList = FooterLinks.map((colomnLinks) => (
     <FooterLink key={uuidv4()} data={colomnLinks}></FooterLink>
   ));
+
   return (
     <div className="bg-gray">
-      <Container className="flex justify-between pt-16">
-        <div className="flex flex-col items-center">
+      <Container className="flex flex-col sm:flex-row justify-between pt-16 space-y-12 sm:space-y-0 sm:gap-7">
+        {/* Section Lycee */}
+        <div className="flex flex-col items-center sm:items-start">
           <Typography variant="caption1" theme="white" weight="medium">
-            Bac Ciel Pierre Mendes France
+            Portofolio de Servany Matteo
           </Typography>
           <Typography variant="caption3" theme="gray">
-            Tout savoir sur la Filière
+            En rechercher d'alternance
           </Typography>
-          <a
-            href="https://www.site.ac-aix-marseille.fr/lyc-mendesfrance-vitrolles/spip/-00-Accueil-.html"
-            target="blank"
-          >
-            <Image
-              src="\asset\svg\LYCEE.svg"
-              width={223}
-              height={216}
-              alt="Site du lycée"
-            />
-          </a>
         </div>
-        <div className="flex gap-7">{footerNavigationList}</div>
+
+        {/* Navigation Links */}
+        <div className="flex flex-wrap gap-7 justify-center sm:justify-start">
+          {footerNavigationList}
+        </div>
       </Container>
+
+      {/* Footer Bottom Section */}
       <Container className="pt-9 pb-11 space-y-11">
         <hr className="text-gray-800" />
-        <div className="flex items-center justify-between ">
-          <Typography variant="caption4" theme="gray">
+        <div className="flex flex-col sm:flex-row items-center justify-between">
+          <Typography
+            variant="caption4"
+            theme="gray"
+            className="text-center sm:text-left"
+          >
             {`Copyright © ${currentYear}|  `}{" "}
             <a
               href="https://gitlab.com/bacciel/front-end"
@@ -49,7 +50,7 @@ export const Footer = () => {
               className="underline"
             >{`Servanty Matteo`}</a>
           </Typography>
-          <div className="">
+          <div className="mt-4 sm:mt-0">
             <SocialNetworkButtons theme="gray" />
           </div>
         </div>
@@ -58,11 +59,11 @@ export const Footer = () => {
   );
 };
 
-interface foorterLinkProps {
+interface FooterLinkProps {
   data: footerLinks;
 }
 
-const FooterLink = ({ data }: foorterLinkProps) => {
+const FooterLink = ({ data }: FooterLinkProps) => {
   const linkList = data.links.map((link) => (
     <div key={uuidv4()}>
       {link.type === LinkTypes.INTERNAL && (
